@@ -1,15 +1,13 @@
 const numberArr = [1, 2, 3, 5];
 
-const getNumberArr = (arr, target) => {
-  for (i = 0; i < arr.length; i++) {
-    for (j = i + 1; j < arr.length; j++) {
-      if (arr[i] + arr[j] === target) {
-        return [...arr, arr[i], arr[j]];
-      } else {
-        return -1;
-      }
+var twoSum = function (nums, target) {
+  for (let index = 0; index < nums.length; index++) {
+    const diff = target - nums[index];
+    const diffIndex = nums.indexOf(diff);
+    if (diffIndex !== -1 && diffIndex !== index) {
+      return [nums[index], nums[diffIndex]];
     }
   }
 };
 
-console.log(getNumberArr(numberArr, 7));
+console.log(twoSum(numberArr, 7));
